@@ -14,3 +14,5 @@ List 2: Player's who were on the team's roster
 Current development: 
 
 Pull player data from day before and add it to a database for analyzing. 
+
+Requires BeautifulSoup and Request modules. 
