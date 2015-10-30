@@ -48,13 +48,14 @@ def getNameLinks(hreflinks):
             pass
     return playerlinks
 
-#cleans up the links to remove certain parts and leave the player first and last name
+#cleans up the links to remove certain parts and leave the player first and last name, capitalized appropriately
 def getNames(links):
     names = []
     for link in links:
         link = link.replace('/playerfile/', '')
         link = link.replace('/index.html', '')
         link = link.replace('_', ' ')
+        link = link.title()
         names.append(link)
     return names
         
