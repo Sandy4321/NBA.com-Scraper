@@ -3,6 +3,8 @@
 import requests
 from bs4 import BeautifulSoup
 
+#uses created URLs from getGames.py to start scraping individual player data. NBA.com has specific tags called "even" and "odd"
+#for each player. Thus they are split into different lists for clarity. 
 def getData(scoreboardURLs):
     gamePlayerDataOdd =[]
     gamePlayerDataEven =[]
@@ -21,7 +23,7 @@ def getData(scoreboardURLs):
     
 
 
-
+#gets the href links for each player which contains the first and last name of the player.
 def getLinks(scoreboardURLs):
     playerNames = []
     for link in scoreboardURLs:
@@ -34,6 +36,7 @@ def getLinks(scoreboardURLs):
 
     return playerNames
 
+#gathers only links that have "/playerfile/" in them to make sure that only player name links are being added 
 def getNameLinks(hreflinks):
     keyword = u'/playerfile/'
     playerlinks = []
@@ -45,6 +48,7 @@ def getNameLinks(hreflinks):
             pass
     return playerlinks
 
+#cleans up the links to remove certain parts and leave the player first and last name
 def getNames(links):
     names = []
     for link in links:
